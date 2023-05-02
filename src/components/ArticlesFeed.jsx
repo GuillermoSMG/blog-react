@@ -7,7 +7,7 @@ const ArticlesFeed = ({ articles, loading }) => {
       {loading && <Loading />}
       {!loading && articles.length === 0 && 'No hay articulos aun.'}
       {articles?.map(article => (
-        <Article key={article._id} article={article} />
+        <Article key={article._id} article={article} loading={loading} />
       ))}
     </main>
   );

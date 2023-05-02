@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useField from '../hooks/useField';
-import { fetchPost } from '../services/fetchPost';
+import { postArticle } from '../services/articles';
 
 const FormArticle = () => {
   const title = useField({ type: 'text', name: 'title' });
@@ -11,7 +11,7 @@ const FormArticle = () => {
     try {
       e.preventDefault();
       setError(null);
-      const article = await fetchPost({
+      const article = await postArticle({
         title: title.value,
         content: content.value,
       });

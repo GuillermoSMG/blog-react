@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useField from '../hooks/useField';
 import { login, signup } from '../services/user';
 
@@ -9,8 +9,6 @@ export default function Signup() {
   const password = useField({ type: 'password', name: 'password' });
   const nickname = useField({ type: 'text', name: 'nickname' });
   const [errMessage, setErrMessage] = useState(null);
-
-  const navigate = useNavigate();
 
   const handleSignup = async e => {
     try {
@@ -22,7 +20,7 @@ export default function Signup() {
         password: password.value,
       });
       await login({ email: email.value, password: password.value });
-      navigate('/feed');
+      window.location.href = 'http://127.0.0.1:5173/';
     } catch (err) {
       setErrMessage(err.response.data.message);
       setTimeout(() => {

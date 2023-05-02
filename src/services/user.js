@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3000/api/user';
+const BASE_URL = 'https://blogapirestful-production.up.railway.app/api/user';
 
 export const signup = async credentials => {
-  const { data } = await axios.post(`${BASE_URL}/signup`, credentials);
+  const { data } = await axios.post(`${BASE_URL}`, credentials);
   return data;
 };
 
@@ -13,7 +13,7 @@ export const login = async credentials => {
   return data;
 };
 
-export const profile = async () => {
+export const getProfile = async () => {
   const user = JSON.parse(localStorage.getItem('user'));
 
   const config = {
@@ -24,6 +24,18 @@ export const profile = async () => {
 
   const id = user.user.id;
 
-  const { data } = await axios.get(`${BASE_URL}/profile/${id}`, config);
+  const { data } = await axios.get(`${BASE_URL}/${id}`, config);
+  return data;
+};
+
+export const userArticles = async id => {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  const config = {
+    headers: {
+      Authorization: user?.token,
+    },
+  };
+  const { data } = await axios.get(`${BASE_URL}/articles/${id}`, config);
   return data;
 };

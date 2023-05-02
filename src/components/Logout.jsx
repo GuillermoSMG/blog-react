@@ -1,15 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { userContext } from './UserContext';
 
 export default function Logout() {
-  const logout = () => {
-    window.localStorage.removeItem('user');
-  };
-
-  const navigate = useNavigate();
+  const { logout } = useContext(userContext);
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    window.location.reload();
   };
 
   return (

@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import ContextContainer from './components/UserContext';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/article/:id' element={<ArticleDetail />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/user/:id' element={<UserProfile />} />
         </Routes>
       </BrowserRouter>
     </ContextContainer>

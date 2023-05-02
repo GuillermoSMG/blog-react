@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useField from '../hooks/useField';
 import { login } from '../services/user';
 
@@ -10,8 +10,6 @@ export default function Login() {
   const email = useField({ type: 'email', name: 'email' });
   const password = useField({ type: 'password', name: 'password' });
 
-  const navigate = useNavigate();
-
   const handleLogin = async e => {
     try {
       e.preventDefault();
@@ -20,7 +18,7 @@ export default function Login() {
         password: password.value,
       });
       setUser(user);
-      navigate('/feed');
+      window.location.href = 'http://127.0.0.1:5173/';
     } catch (err) {
       setErrMessage('Credenciales inválidas.');
       setTimeout(() => {

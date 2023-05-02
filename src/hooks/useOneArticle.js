@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { noAuthFetch } from '../services/noAuthFetch';
+import { noAuthFetch } from '../services/articles';
 
 export const useOneArticle = id => {
   const [article, setArticle] = useState([]);
