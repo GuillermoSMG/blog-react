@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  height: 100vh;
+  background-color: #18181b;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 12px;
+  background-color: #232327;
+  border-radius: 5px;
+}

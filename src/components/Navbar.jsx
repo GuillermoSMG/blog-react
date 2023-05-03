@@ -7,7 +7,7 @@ const Navbar = () => {
   const { user } = useContext(userContext);
 
   return (
-    <div className='flex h-20 items-center justify-between bg-sky-200'>
+    <div className='flex h-24 items-center justify-between bg-zinc-950 text-white'>
       <Link className='mx-8' to={'/'}>
         <h1 className='text-5xl'>Blog</h1>
       </Link>

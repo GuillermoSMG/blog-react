@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import ContextContainer from './components/UserContext';
 import UserProfile from './components/UserProfile';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/user/:id' element={<UserProfile />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ContextContainer>
   );

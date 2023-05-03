@@ -18,7 +18,7 @@ export default function Login() {
         password: password.value,
       });
       setUser(user);
-      window.location.href = 'http://127.0.0.1:5173/';
+      window.location.href = 'https://blogconapifs.netlify.app/';
     } catch (err) {
       setErrMessage('Credenciales inválidas.');
       setTimeout(() => {
@@ -29,23 +29,44 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Log In</h1>
-        <form onSubmit={handleLogin}>
+    <section className='bg-zinc-900 text-white min-h-[80vh] flex items-center justify-center'>
+      <main className='flex flex-col gap-5 bg-zinc-800 px-6 py-4 rounded-md'>
+        <h1 className='text-2xl'>Log In</h1>
+        <form className='flex flex-col gap-5' onSubmit={handleLogin}>
           <div>
-            <input {...email} placeholder='Email'></input>
+            <input
+              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              name={email.name}
+              type={email.type}
+              onChange={email.onChange}
+              value={email.value}
+              placeholder='Email'
+            ></input>
           </div>
           <div>
-            <input {...password} placeholder='Password'></input>
+            <input
+              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              name={password.name}
+              type={password.type}
+              onChange={password.onChange}
+              value={password.value}
+              placeholder='Password'
+            ></input>
           </div>
-          <button>Log in</button>
-          <div>{errMessage}</div>
+          <div className='text-zinc-500'>{errMessage}</div>
+          <button className='min-w-16 bg-zinc-700 rounded-xl py-2 px-4 w-32 self-center hover:bg-zinc-600 active:translate-y-1'>
+            Log in
+          </button>
         </form>
-        <p>
-          ¿Aun no tienes una cuenta? <Link to='/signup'>Registrate</Link>
+        <p className='py-4'>
+          ¿Aun no tienes una cuenta?{' '}
+          <Link to='/signup'>
+            <span className='text-blue-400 hover:text-blue-700'>
+              Registrate
+            </span>
+          </Link>
         </p>
-      </div>
-    </div>
+      </main>
+    </section>
   );
 }

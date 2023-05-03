@@ -20,7 +20,7 @@ export default function Signup() {
         password: password.value,
       });
       await login({ email: email.value, password: password.value });
-      window.location.href = 'http://127.0.0.1:5173/';
+      window.location.href = 'https://blogconapifs.netlify.app/';
     } catch (err) {
       setErrMessage(err.response.data.message);
       setTimeout(() => {
@@ -30,29 +30,68 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Sign up</h1>
-        <form onSubmit={handleSignup}>
+    <section className='bg-zinc-900 text-white min-h-[80vh] flex items-center justify-center'>
+      <main className='flex flex-col gap-5 bg-zinc-800 px-6 py-4 rounded-md'>
+        <h1 className='text-2xl'>Sign up</h1>
+        <form className='flex flex-col gap-5' onSubmit={handleSignup}>
           <div>
-            <input {...name} placeholder='Name' required></input>
+            <input
+              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              name={name.name}
+              type={name.type}
+              onChange={name.onChange}
+              value={name.value}
+              placeholder='Name'
+              required
+            ></input>
           </div>
           <div>
-            <input {...nickname} placeholder='Nickname' required></input>
+            <input
+              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              name={nickname.name}
+              type={nickname.type}
+              onChange={nickname.onChange}
+              value={nickname.value}
+              placeholder='Nickname'
+              required
+            ></input>
           </div>
           <div>
-            <input {...email} placeholder='Email' required></input>
+            <input
+              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              name={email.name}
+              type={email.type}
+              onChange={email.onChange}
+              value={email.value}
+              placeholder='Email'
+              required
+            ></input>
           </div>
           <div>
-            <input {...password} placeholder='Password' required></input>
+            <input
+              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              name={password.name}
+              type={password.type}
+              onChange={password.onChange}
+              value={password.value}
+              placeholder='Password'
+              required
+            ></input>
           </div>
-          <div>{errMessage}</div>
-          <button>Sign up</button>
+          <span className='text-zinc-500'>{errMessage}</span>
+          <button className='min-w-16 bg-zinc-700 rounded-xl py-2 px-4 w-32 self-center hover:bg-zinc-600 active:translate-y-1'>
+            Sign up
+          </button>
         </form>
-        <p>
-          ¿Ya tienes una cuenta? <Link to='/login'>Inicia sesión</Link>
+        <p className='py-4'>
+          ¿Ya tienes una cuenta?{' '}
+          <Link to='/login'>
+            <span className='text-blue-400 hover:text-blue-700'>
+              Inicia sesión
+            </span>
+          </Link>
         </p>
-      </div>
-    </div>
+      </main>
+    </section>
   );
 }

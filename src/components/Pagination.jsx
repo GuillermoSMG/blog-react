@@ -6,14 +6,14 @@ const Pagination = ({ page, total }) => {
       {Number(page) > 1 && (
         <Link
           to={`/${Number(page) - 1}`}
-          className='text-blue-500 bg-blue-100 px-4 py-2 hover:shadow-sm hover:shadow-blue-300'
+          className='text-blue-300 bg-zinc-600 px-4 py-2 hover:shadow-sm hover:bg-zinc-500 rounded-md'
         >
           Prev page
         </Link>
       )}
       {total > 1 && Number(page) + 1 <= total ? (
         <Link
-          className='text-blue-400 bg-blue-100 px-4 py-2 hover:shadow-sm hover:shadow-blue-300'
+          className='text-blue-300 bg-zinc-600 px-4 py-2 hover:shadow-sm hover:bg-zinc-500 rounded-md'
           to={`/${Number(page) + 1}`}
         >
           Next page
