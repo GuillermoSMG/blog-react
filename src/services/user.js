@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://blogapirestful-production.up.railway.app/api/user/';
+const BASE_URL = import.meta.env.VITE_BASE_USER;
 
 export const signup = async credentials => {
   const { data } = await axios.post(`${BASE_URL}`, credentials);

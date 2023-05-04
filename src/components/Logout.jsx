@@ -6,7 +6,7 @@ export default function Logout() {
 
   const handleLogout = () => {
     logout();
-    window.location.href = 'https://blogconapifs.netlify.app/';
+    window.location.href = import.meta.env.VITE_BASE_URL;
   };
 
   return (

@@ -20,7 +20,7 @@ export default function Signup() {
         password: password.value,
       });
       await login({ email: email.value, password: password.value });
-      window.location.href = 'https://blogconapifs.netlify.app/';
+      window.location.href = import.meta.env.VITE_BASE_URL;
     } catch (err) {
       setErrMessage(err.response.data.message);
       setTimeout(() => {

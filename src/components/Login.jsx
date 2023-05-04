@@ -18,7 +18,7 @@ export default function Login() {
         password: password.value,
       });
       setUser(user);
-      window.location.href = 'https://blogconapifs.netlify.app/';
+      window.location.href = import.meta.env.VITE_BASE_URL;
     } catch (err) {
       setErrMessage('Credenciales inválidas.');
       setTimeout(() => {

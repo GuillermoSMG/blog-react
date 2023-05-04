@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL =
-  'https://blogapirestful-production.up.railway.app/api/articles/';
+const BASE_URL = import.meta.env.VITE_BASE_ARTICLES;
 
 export const noAuthFetch = async url => {
   const { data } = await axios.get(`${BASE_URL}${url}`);
