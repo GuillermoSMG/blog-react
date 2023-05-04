@@ -3,12 +3,14 @@ import useField from '../hooks/useField';
 import { postArticle } from '../services/articles';
 import { Toaster } from 'react-hot-toast';
 import { postToast } from '../utils/postToast';
+import { useNavigate } from 'react-router-dom';
 
 const FormArticle = () => {
   const title = useField({ type: 'text', name: 'title', initialValue: '' });
   const content = useField({ type: 'text', name: 'content', initialValue: '' });
   const [error, setError] = useState(null);
   const [disable, setDisable] = useState(false);
+  const navigate = useNavigate();
   const handleSubmit = async e => {
     try {
       e.preventDefault();
@@ -21,6 +23,7 @@ const FormArticle = () => {
       title.reset();
       content.reset();
       postToast();
+      navigate('/');
       setDisable(false);
       return article;
     } catch (error) {

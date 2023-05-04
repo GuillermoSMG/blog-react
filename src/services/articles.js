@@ -30,3 +30,8 @@ export const deleteArticle = async id => {
   const { data } = await axios.delete(`${BASE_URL}${id}`, config);
   return data;
 };
+
+export const searchArticle = async searchString => {
+  const { data } = await axios.get(`${BASE_URL}search/${searchString}`);
+  return data;
+};

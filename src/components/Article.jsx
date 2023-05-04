@@ -8,7 +8,6 @@ import { deleteToast } from '../utils/deleteToast';
 
 const Article = ({ article }) => {
   const { user } = useContext(userContext);
-
   const handleDelete = async e => {
     // usar toastify
     try {
@@ -26,6 +25,9 @@ const Article = ({ article }) => {
       key={article?._id}
       className='relative flex flex-col px-8 py-5 w-full '
     >
+      {user?.user?.role === 'role_admin' && (
+        <span className='text-white'>Hola admin</span>
+      )}
       <h2 className='text-white text-2xl pb-3'>
         {article?.title}
         {articleUser === userId && (

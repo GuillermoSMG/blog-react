@@ -7,10 +7,12 @@ import Article from './Article';
 const ArticleDetail = () => {
   const { id } = useParams();
   const { article } = useOneArticle(id);
-  const { profile } = useProfile({ id: article?.user });
+  const { profile, error } = useProfile({ id: article?.user });
+
   return (
     <section className='flex justify-center min-h-[80vh] bg-zinc-900'>
       <article className='w-2/3  h-fit' key={article?._id}>
+        {error && <span>{error}</span>}
         {profile.length !== 0 && (
           <div className='flex items-center gap-4 p-4'>
             <img
