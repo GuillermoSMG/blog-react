@@ -8,18 +8,12 @@ import { userContext } from './UserContext';
 
 const Main = () => {
   const { page = 1 } = useParams();
-  const { articles, itemsPerPage, total, loading } = useArticles(page);
+  const { articles, total, loading, error } = useArticles(page);
   const { user } = useContext(userContext);
   return (
     <section className='bg-zinc-900 flex flex-col items-center mb-10'>
       {user && <FormArticle />}
-      <ArticlesFeed
-        articles={articles}
-        itemsPerPage={itemsPerPage}
-        total={total}
-        page={page}
-        loading={loading}
-      />
+      <ArticlesFeed articles={articles} loading={loading} error={error} />
       <Pagination page={page} total={total} />
     </section>
   );

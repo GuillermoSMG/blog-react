@@ -1,11 +1,13 @@
 import { Toaster } from 'react-hot-toast';
 import Article from './Article';
 import Loading from './Loading';
+import Error from './Error';
 
-const ArticlesFeed = ({ articles, loading }) => {
+const ArticlesFeed = ({ articles, loading, error }) => {
   return (
-    <main className='flex flex-col gap-5 w-5/6 mt-10 md:px-0 md:w-5/6 lg:m-2/3 bg-zinc-900'>
+    <main className='flex flex-col items-center gap-5 w-5/6 mt-10 md:px-0 md:w-5/6 lg:m-2/3 bg-zinc-900'>
       {loading && <Loading />}
+      {error && <Error error={error} />}
       {!loading && articles.length === 0 && (
         <span className='self-center text-white'>No hay articulos aun.</span>
       )}

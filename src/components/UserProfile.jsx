@@ -4,17 +4,19 @@ import Article from './Article';
 import { useProfile } from '../hooks/useProfile';
 import Loading from './Loading';
 import { Toaster } from 'react-hot-toast';
+import Pagination from './Pagination';
+import Error from './Error';
 
 const UserProfile = () => {
-  const { id } = useParams();
-  const { articles } = useUserArticles(id);
-  const { profile } = useProfile({ id: articles[0]?.user._id });
-
+  const { id, page } = useParams();
+  const { articles, total, loading, articleError } = useUserArticles(id);
+  const { profile, error } = useProfile({
+    id: articles[0]?.user._id,
+  });
   return (
-    <section className='bg-zinc-900 w-11/12 self-center flex flex-col mb-14'>
-      {!profile ? (
-        <Loading />
-      ) : (
+    <section className='bg-zinc-900 w-11/12 items-center self-center flex flex-col mb-14'>
+      {error && <Error error={error} />}
+      {profile.length !== 0 && (
         <div className='flex items-center gap-4 py-4 md:mx-8'>
           <img
             className='w-10 aspect-square rounded-full'
@@ -23,6 +25,8 @@ const UserProfile = () => {
           />
           <h1 className='text-2xl text-white'>{profile?.nickname}</h1>
           <span className='text-sm text-gray-400'>{profile?.name}</span>
+          {loading && <Loading />}
+          {articleError && <Error error={articleError} />}
           {articles?.length === 1 ? (
             <span className='text-xs text-gray-500 ml-10'>
               {articles?.length} artículo.
@@ -34,10 +38,13 @@ const UserProfile = () => {
           )}
         </div>
       )}
+      {loading && <Loading />}
+      {articleError && <Error error={articleError} />}
       {articles.length > 0 &&
         articles.map(article => (
           <Article key={article._id} article={article} />
         ))}
+      <Pagination page={page} total={total} />
       <Toaster />
     </section>
   );

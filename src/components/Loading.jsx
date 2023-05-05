@@ -1,5 +1,17 @@
+import { MutatingDots } from 'react-loader-spinner';
 const Loading = () => {
-  return <div className='self-center text-white'>Loading...</div>;
+  return (
+    <MutatingDots
+      height='80'
+      width='80'
+      radius='9'
+      color='blue'
+      secondaryColor='skyblue'
+      ariaLabel='loading'
+      wrapperStyle
+      wrapperClass
+    />
+  );
 };
 
 export default Loading;

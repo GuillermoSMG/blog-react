@@ -3,17 +3,23 @@ import { Toaster } from 'react-hot-toast';
 import { useOneArticle } from '../hooks/useOneArticle';
 import { useProfile } from '../hooks/useProfile';
 import Article from './Article';
+import Loading from './Loading';
+import Error from './Error';
 
 const ArticleDetail = () => {
   const { id } = useParams();
-  const { article } = useOneArticle(id);
-  const { profile, error } = useProfile({ id: article?.user });
+  const { article, loading, articleError } = useOneArticle(id);
+  const { profile, error, loadingProfile } = useProfile({ id: article?.user });
 
   return (
     <section className='flex justify-center bg-zinc-900'>
-      <article className='w-11/12 md:w-2/3  h-fit' key={article?._id}>
-        {error && <span>{error}</span>}
-        {profile.length !== 0 && (
+      <article
+        className='w-11/12 md:w-2/3 flex flex-col justify-center items-center h-fit'
+        key={article?._id}
+      >
+        <Error error={error} />
+        {loadingProfile && <Loading />}
+        {profile.length !== 0 ? (
           <div className='flex items-center gap-4 p-4'>
             <img
               className='w-7 aspect-square rounded-full'
@@ -25,8 +31,9 @@ const ArticleDetail = () => {
             </Link>
             <span className='text-xs text-gray-400'>{profile?.name}</span>
           </div>
-        )}
-        <Article article={article} />
+        ) : null}
+        {loading ? <Loading /> : <Article article={article} />}
+        {articleError && <Error error={articleError} />}
       </article>
       <Toaster />
     </section>

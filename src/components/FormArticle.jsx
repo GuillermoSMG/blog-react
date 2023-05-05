@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import { postToast } from '../utils/postToast';
 import { useNavigate } from 'react-router-dom';
 import ActionButton from './ActionButton';
+import Error from './Error';
 
 const FormArticle = () => {
   const title = useField({ type: 'text', name: 'title', initialValue: '' });
@@ -68,7 +69,7 @@ const FormArticle = () => {
           position='self-center'
           disabled={disable}
         />
-        {error && <span className='text-red-600 font-semibold'>{error}</span>}
+        {error && <Error error={error} />}
       </form>
       <Toaster />
     </div>

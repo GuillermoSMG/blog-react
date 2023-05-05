@@ -19,7 +19,7 @@ function App() {
           <Route path='/article/:id' element={<ArticleDetail />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/user/:id' element={<UserProfile />} />
+          <Route path='/user/:id/:page?' element={<UserProfile />} />
           <Route path='/search/:searchString?' element={<SearchFeed />} />
         </Routes>
         <Footer />

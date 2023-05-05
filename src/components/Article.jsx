@@ -27,7 +27,7 @@ const Article = ({ article }) => {
       className='relative flex flex-col md:px-8 md:py-5 md:mr-4'
     >
       {user?.user?.role === 'role_admin' && (
-        <span className='text-white'>Hola admin</span>
+        <span className='text-white'>admin</span>
       )}
       <h2 className='relative text-white text-2xl pb-3'>
         {article?.title}
