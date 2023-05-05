@@ -8,12 +8,33 @@ import SearchFeed from './components/SearchFeed';
 import Signup from './components/Signup';
 import ContextContainer from './components/UserContext';
 import UserProfile from './components/UserProfile';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [theme, setTheme] = useState(
+    JSON.parse(localStorage.getItem('theme')) || 'dark'
+  );
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const handleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+    if (theme === 'dark') {
+      localStorage.setItem('theme', JSON.stringify('light'));
+    } else {
+      localStorage.setItem('theme', JSON.stringify('dark'));
+    }
+  };
+
   return (
     <ContextContainer>
       <BrowserRouter>
-        <Navbar />
+        <Navbar handleTheme={handleTheme} theme={theme} />
         <Routes>
           <Route path='/:page?' element={<Main />} />
           <Route path='/article/:id' element={<ArticleDetail />} />

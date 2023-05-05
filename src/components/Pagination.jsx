@@ -7,7 +7,7 @@ const Pagination = ({ page, total, url = '/' }) => {
         <button>
           <Link
             to={`${url}${Number(page) - 1}`}
-            className='text-blue-300 bg-zinc-600 px-4 py-2 hover:shadow-sm hover:bg-zinc-500 rounded-md'
+            className='font-bold text-green-500 bg-slate-300 hover:text-slate-300 hover:bg-green-500 dark:text-blue-300 dark:bg-zinc-600 disabled:text-slate-500 disabled:hover:bg-slate-300 dark:disabled:hover:bg-zinc-600 px-4 py-2 hover:shadow-sm dark:hover:bg-zinc-500 dark:disabled:opacity-50 rounded-md'
           >
             Prev
           </Link>
@@ -15,18 +15,18 @@ const Pagination = ({ page, total, url = '/' }) => {
       ) : (
         <button
           disabled
+          className='font-bold text-green-500 bg-slate-300 hover:text-slate-300 hover:bg-green-500 dark:text-blue-300 dark:bg-zinc-600 disabled:text-slate-500 disabled:hover:bg-slate-300 dark:disabled:hover:bg-zinc-600 px-4 py-2 hover:shadow-sm dark:hover:bg-zinc-500 dark:disabled:opacity-50 rounded-md'
           title='Nothing Beyond'
-          className='text-blue-300 bg-zinc-600 px-4 py-2 hover:shadow-sm hover:bg-zinc-500 rounded-md disabled:opacity-40'
         >
           {' '}
           Prev{' '}
         </button>
       )}
-      <span className='text-white'>Page {page}</span>
+      <span className='font-bold dark:text-white'>Page {page}</span>
       {total > 1 && Number(page) + 1 <= total ? (
         <button>
           <Link
-            className='text-blue-300 bg-zinc-600 px-4 py-2 hover:shadow-sm hover:bg-zinc-500 rounded-md'
+            className='font-bold text-green-500 bg-slate-300 hover:text-slate-300 hover:bg-green-500 dark:text-blue-300 dark:bg-zinc-600 disabled:text-slate-500 disabled:hover:bg-slate-300 dark:disabled:hover:bg-zinc-600 px-4 py-2 hover:shadow-sm dark:hover:bg-zinc-500 dark:disabled:opacity-50 rounded-md'
             to={`${url}${Number(page) + 1}`}
           >
             Next
@@ -35,8 +35,8 @@ const Pagination = ({ page, total, url = '/' }) => {
       ) : (
         <button
           title='Nothing Beyond'
+          className='font-bold text-green-500 bg-slate-300 hover:text-slate-300 hover:bg-green-500 dark:text-blue-300 dark:bg-zinc-600 disabled:text-slate-500 disabled:hover:bg-slate-300 dark:disabled:hover:bg-zinc-600 px-4 py-2 hover:shadow-sm dark:hover:bg-zinc-500 dark:disabled:opacity-50 rounded-md'
           disabled
-          className='text-blue-300 bg-zinc-600 px-4 py-2 hover:shadow-sm hover:bg-zinc-500 rounded-md disabled:opacity-40'
         >
           {' '}
           Next{' '}

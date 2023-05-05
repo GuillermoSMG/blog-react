@@ -31,13 +31,13 @@ export default function Login() {
   };
 
   return (
-    <section className='bg-zinc-900 text-white flex items-center justify-center'>
-      <main className='flex flex-col gap-5 bg-zinc-800 px-6 py-4 rounded-md'>
+    <section className='dark:bg-zinc-900 font-bold dark:text-white flex items-center justify-center'>
+      <main className='flex flex-col gap-5 bg-slate-200 dark:bg-zinc-800 px-6 py-4 rounded-md'>
         <h1 className='text-2xl'>Log In</h1>
-        <form className='flex flex-col gap-5' onSubmit={handleLogin}>
+        <form className='flex  flex-col gap-5' onSubmit={handleLogin}>
           <div>
             <input
-              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={email.name}
               type={email.type}
               onChange={email.onChange}
@@ -47,7 +47,7 @@ export default function Login() {
           </div>
           <div>
             <input
-              className='rounded-md px-4 py-1 outline-none text-black w-full'
+              className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={password.name}
               type={password.type}
               onChange={password.onChange}

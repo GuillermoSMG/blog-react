@@ -14,7 +14,7 @@ const SearchBar = () => {
   return (
     <div className=''>
       <form
-        className='flex items-center gap-2 bg-zinc-900 md:py-2 md:px-4 rounded-md'
+        className='flex items-center gap-2 bg-slate-100 dark:bg-zinc-900 md:py-2 md:px-4 rounded-md'
         onSubmit={handleSubmit}
       >
         <label className='cursor-text' htmlFor='search'>
@@ -26,7 +26,7 @@ const SearchBar = () => {
           />
         </label>
         <input
-          className='rounded-sm outline-none w-24 px-2 py-2 bg-zinc-900 md:w-auto focus:bg-zinc-700 focus:text-white'
+          className='rounded-sm outline-none w-24 px-2 py-2 bg-slate-100 dark:bg-zinc-900 md:w-auto dark:focus:bg-zinc-700 dark:focus:text-white'
           id='search'
           name={search.name}
           type={search.type}

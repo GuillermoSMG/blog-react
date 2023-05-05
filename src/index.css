@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 html {
+  background-color: #fff;
   height: 100vh;
-  background-color: #18181b;
   overflow-x: hidden;
+}
+
+html.dark {
+  background-color: #18181b;
 }
 
 #root {
@@ -15,13 +19,22 @@ html {
   justify-content: space-between;
 }
 
-::-webkit-scrollbar {
+html.dark::-webkit-scrollbar-thumb {
+  width: 12px;
+  background-color: #232327;
+  border-radius: 5px;
+}
+html.dark::-webkit-scrollbar {
   width: 12px;
   background-color: #18181b;
 }
 
-::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   width: 12px;
-  background-color: #232327;
+  background-color: rgb(134 239 172);
   border-radius: 5px;
+}
+html::-webkit-scrollbar {
+  width: 12px;
+  background-color: rgb(255 255 255);
 }

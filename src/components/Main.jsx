@@ -11,7 +11,7 @@ const Main = () => {
   const { articles, total, loading, error } = useArticles(page);
   const { user } = useContext(userContext);
   return (
-    <section className='bg-zinc-900 flex flex-col items-center mb-10'>
+    <section className='bg-white dark:bg-zinc-900 flex flex-col items-center mb-10'>
       {user && <FormArticle />}
       <ArticlesFeed articles={articles} loading={loading} error={error} />
       <Pagination page={page} total={total} />

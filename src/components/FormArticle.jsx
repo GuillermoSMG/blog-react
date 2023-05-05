@@ -34,14 +34,14 @@ const FormArticle = () => {
     }
   };
   return (
-    <div className='md:w-2/3 bg-zinc-800 my-5 rounded-2xl'>
+    <div className='md:w-2/3 bg-slate-200 dark:bg-zinc-800 my-5 rounded-2xl'>
       <form
         className='flex flex-col gap-2 px-4 md:px-8 py-4'
         onSubmit={handleSubmit}
       >
         <div className='flex flex-col gap-4'>
           <input
-            className='rounded-sm outline-none text-white px-4 py-2 bg-zinc-900 focus:bg-zinc-700 focus:text-white'
+            className='rounded-sm outline-none bg-slate-100 dark:text-white px-4 py-2 dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white'
             name={title.name}
             type={title.type}
             onChange={title.onChange}
@@ -50,7 +50,7 @@ const FormArticle = () => {
             required
           />
           <textarea
-            className='h-20 rounded-sm resize-none outline-none text-white px-4 py-2 bg-zinc-900 focus:bg-zinc-700 focus:text-white'
+            className='h-20 rounded-sm resize-none outline-none bg-slate-100 dark:text-white px-4 py-2 dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white'
             name={content.name}
             type={content.type}
             onChange={content.onChange}
