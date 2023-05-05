@@ -8,8 +8,8 @@ import ActionButton from './ActionButton';
 import Error from './Error';
 
 const FormArticle = () => {
-  const title = useField({ type: 'text', name: 'title', initialValue: '' });
-  const content = useField({ type: 'text', name: 'content', initialValue: '' });
+  const title = useField({ type: 'text', name: 'title' });
+  const content = useField({ type: 'text', name: 'content' });
   const [error, setError] = useState(null);
   const [disable, setDisable] = useState(false);
   const navigate = useNavigate();

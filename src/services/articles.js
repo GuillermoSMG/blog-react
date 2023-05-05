@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const BASE_URL = import.meta.env.VITE_BASE_ARTICLES;
 
-export const noAuthFetch = async url => {
-  const { data } = await axios.get(`${BASE_URL}${url}`);
+export const noAuthFetch = async page => {
+  const { data } = await axios.get(`${BASE_URL}${page}`);
   return data;
 };
 

@@ -26,7 +26,7 @@ export const getProfile = async id => {
   return data;
 };
 
-export const userArticles = async id => {
+export const userArticles = async (id, page) => {
   const user = JSON.parse(localStorage.getItem('user'));
 
   const config = {
@@ -34,6 +34,6 @@ export const userArticles = async id => {
       Authorization: user?.token,
     },
   };
-  const { data } = await axios.get(`${BASE_URL}articles/${id}`, config);
+  const { data } = await axios.get(`${BASE_URL}articles/${id}/${page}`, config);
   return data;
 };

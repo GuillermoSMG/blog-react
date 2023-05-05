@@ -8,8 +8,6 @@ const Loading = () => {
       color='blue'
       secondaryColor='skyblue'
       ariaLabel='loading'
-      wrapperStyle
-      wrapperClass
     />
   );
 };

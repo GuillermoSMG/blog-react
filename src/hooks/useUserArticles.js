@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { userArticles } from '../services/user';
 
-export const useUserArticles = id => {
+export const useUserArticles = (id, pageNum) => {
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(null);
   const [itemsPerPage, setItemsPerPage] = useState(null);
@@ -12,7 +12,7 @@ export const useUserArticles = id => {
     setLoading(true);
     setArticleError(null);
     setArticles([]);
-    userArticles(id)
+    userArticles(id, pageNum)
       .then(data => {
         setArticles(data.articles);
         setPage(data.page);
@@ -24,6 +24,6 @@ export const useUserArticles = id => {
         setArticleError(error?.response?.data?.message);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, pageNum]);
   return { articles, page, itemsPerPage, total, loading, articleError };
 };
