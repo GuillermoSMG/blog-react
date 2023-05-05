@@ -11,7 +11,7 @@ const Main = () => {
   const { articles, itemsPerPage, total, loading } = useArticles(page);
   const { user } = useContext(userContext);
   return (
-    <section className='min-h-screen bg-zinc-900 flex flex-col items-center'>
+    <section className='bg-zinc-900 flex flex-col items-center mb-10'>
       {user && <FormArticle />}
       <ArticlesFeed
         articles={articles}

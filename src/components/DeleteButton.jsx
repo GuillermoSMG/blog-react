@@ -1,6 +1,10 @@
 const DeleteButton = ({ handleDelete }) => {
   return (
-    <button onClick={handleDelete} className='absolute right-0 text-[1.25rem]'>
+    <button
+      onClick={handleDelete}
+      title='Delete'
+      className='absolute right-0 text-[1.25rem]'
+    >
       🗑
     </button>
   );

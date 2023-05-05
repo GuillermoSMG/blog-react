@@ -10,8 +10,8 @@ const ArticleDetail = () => {
   const { profile, error } = useProfile({ id: article?.user });
 
   return (
-    <section className='flex justify-center min-h-[80vh] bg-zinc-900'>
-      <article className='w-2/3  h-fit' key={article?._id}>
+    <section className='flex justify-center bg-zinc-900'>
+      <article className='w-11/12 md:w-2/3  h-fit' key={article?._id}>
         {error && <span>{error}</span>}
         {profile.length !== 0 && (
           <div className='flex items-center gap-4 p-4'>

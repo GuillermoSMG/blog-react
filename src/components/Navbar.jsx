@@ -8,13 +8,16 @@ const Navbar = () => {
   const { user } = useContext(userContext);
 
   return (
-    <div className='flex h-24 items-center justify-between bg-zinc-950 text-white'>
-      <Link className='mx-8 hidden lg:block' to={'/'}>
-        <h1 className='text-5xl'>CodeWord</h1>
-      </Link>
-      <SearchBar />
+    <header className='flex w-full h-24 items-center justify-around md:justify-between bg-zinc-950 text-white'>
+      <div className='flex max-w-md'>
+        <Link className='mr-4 ml-1 md:mx-5' to={'/'}>
+          <h1 className='text-5xl hidden md:block'>CodeWord</h1>
+          <h1 className='text-3xl block md:hidden'>CW</h1>
+        </Link>
+        <SearchBar />
+      </div>
       {!user ? (
-        <div className='mx-8 flex gap-3'>
+        <div className='mx-3 flex gap-3 flex-col md:flex-row'>
           <Link className='font-medium hover:underline' to={'/login'}>
             Login
           </Link>
@@ -25,7 +28,7 @@ const Navbar = () => {
       ) : (
         <Logout />
       )}
-    </div>
+    </header>
   );
 };
 

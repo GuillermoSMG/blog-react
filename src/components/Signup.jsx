@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useField from '../hooks/useField';
 import { login, signup } from '../services/user';
+import ActionButton from './ActionButton';
+import Error from './Error';
 
 export default function Signup() {
   const name = useField({ type: 'text', name: 'name' });
@@ -15,8 +17,8 @@ export default function Signup() {
       e.preventDefault();
       await signup({
         name: name.value,
-        nickname: nickname.value,
         email: email.value,
+        nickname: nickname.value,
         password: password.value,
       });
       await login({ email: email.value, password: password.value });
@@ -30,7 +32,7 @@ export default function Signup() {
   };
 
   return (
-    <section className='bg-zinc-900 text-white min-h-[80vh] flex items-center justify-center'>
+    <section className='my-10 bg-zinc-900 text-white flex items-center justify-center'>
       <main className='flex flex-col gap-5 bg-zinc-800 px-6 py-4 rounded-md'>
         <h1 className='text-2xl'>Sign up</h1>
         <form className='flex flex-col gap-5' onSubmit={handleSignup}>
@@ -78,10 +80,8 @@ export default function Signup() {
               required
             ></input>
           </div>
-          <span className='text-zinc-500'>{errMessage}</span>
-          <button className='min-w-16 bg-zinc-700 rounded-xl py-2 px-4 w-32 self-center hover:bg-zinc-600 active:translate-y-1'>
-            Sign up
-          </button>
+          <Error error={errMessage} />
+          <ActionButton width='w-32' position='self-center' text='Sign up' />
         </form>
         <p className='py-4'>
           ¿Ya tienes una cuenta?{' '}
