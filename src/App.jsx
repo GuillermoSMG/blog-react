@@ -8,44 +8,26 @@ import SearchFeed from './components/SearchFeed';
 import Signup from './components/Signup';
 import ContextContainer from './components/UserContext';
 import UserProfile from './components/UserProfile';
-import { useEffect, useState } from 'react';
+import ThemeContextContainer from './components/ThemeContext';
 
 function App() {
-  const [theme, setTheme] = useState(
-    JSON.parse(localStorage.getItem('theme')) || 'dark'
-  );
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
-
-  const handleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-    if (theme === 'dark') {
-      localStorage.setItem('theme', JSON.stringify('light'));
-    } else {
-      localStorage.setItem('theme', JSON.stringify('dark'));
-    }
-  };
-
   return (
-    <ContextContainer>
-      <BrowserRouter>
-        <Navbar handleTheme={handleTheme} theme={theme} />
-        <Routes>
-          <Route path='/:page?' element={<Main />} />
-          <Route path='/article/:id' element={<ArticleDetail />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/user/:id/:page?' element={<UserProfile />} />
-          <Route path='/search/:searchString?' element={<SearchFeed />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </ContextContainer>
+    <ThemeContextContainer>
+      <ContextContainer>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path='/:page?' element={<Main />} />
+            <Route path='/article/:id' element={<ArticleDetail />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/user/:id/:page?' element={<UserProfile />} />
+            <Route path='/search/:searchString?' element={<SearchFeed />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </ContextContainer>
+    </ThemeContextContainer>
   );
 }
 

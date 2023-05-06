@@ -24,7 +24,7 @@ const ArticleDetail = () => {
             <img
               className='w-7 aspect-square rounded-full'
               src='https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fronaldmottram.co.nz%2Fwp-content%2Fuploads%2F2019%2F01%2Fdefault-user-icon-8-300x300.jpg&f=1&nofb=1&ipt=2d796ffae4b86ab417c69c233a8537b6d58082ddc1f93417d509d0955c5b0019&ipo=images'
-              alt=''
+              alt='Profile default image'
             />
             <Link
               className='text-lg font-bold dark:text-white'

@@ -29,15 +29,20 @@ const Article = ({ article }) => {
       {user?.user?.role === 'role_admin' && (
         <span className='dark:text-white'>admin</span>
       )}
-      <h2 className='relative text-green-600 font-bold dark:text-white text-2xl pb-3'>
-        {article?.title}
+      <div>
+        <Link className='flex flex-col' to={`/article/${article?._id}`}>
+          <h2 className='relative text-green-600 font-bold dark:text-white text-2xl pb-3'>
+            {article?.title}
+          </h2>
+        </Link>
         {articleUser === userId && (
           <div className='absolute top-0 -right-2 md:right-0 md:top-0'>
             <DeleteButton handleDelete={handleDelete} />
             <EditButton />
           </div>
         )}
-      </h2>
+      </div>
+
       <Link className='flex flex-col' to={`/article/${article?._id}`}>
         <p className='dark:text-gray-300'>{article?.content}</p>
         {article?.image !== null ? <img src={article?.image} /> : null}

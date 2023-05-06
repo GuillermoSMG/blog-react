@@ -10,7 +10,7 @@ export default function Logout() {
   };
 
   return (
-    <div className='md:mx-8 flex gap-3'>
+    <div className='md:mx-6 flex gap-3'>
       <button
         className='font-medium hover:underline'
         onClick={() => handleLogout()}
