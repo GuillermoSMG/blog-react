@@ -40,24 +40,36 @@ const FormArticle = () => {
         onSubmit={handleSubmit}
       >
         <div className='flex flex-col gap-4'>
-          <input
-            className='rounded-sm outline-none bg-slate-100 dark:text-white px-4 py-2 dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white'
-            name={title.name}
-            type={title.type}
-            onChange={title.onChange}
-            value={title.value}
-            placeholder='¿Qué es JavaScript?'
-            required
-          />
-          <textarea
-            className='h-20 rounded-sm resize-none outline-none bg-slate-100 dark:text-white px-4 py-2 dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white'
-            name={content.name}
-            type={content.type}
-            onChange={content.onChange}
-            value={content.value}
-            placeholder='JavaScript es...'
-            required
-          />
+          <div className='flex flex-col'>
+            <label htmlFor='title' className='cursor-text text-gray-500'>
+              Title
+            </label>
+            <input
+              id='title'
+              className='rounded-sm outline-none bg-slate-100 dark:text-white px-4 py-2 dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white'
+              name={title.name}
+              type={title.type}
+              onChange={title.onChange}
+              value={title.value}
+              placeholder='¿Qué es JavaScript?'
+              required
+            />
+          </div>
+          <div className='flex flex-col'>
+            <label htmlFor='content' className='cursor-text text-gray-500'>
+              Content
+            </label>
+            <textarea
+              id='content'
+              className='h-20 relative rounded-sm resize-none outline-none bg-slate-100 dark:text-white px-4 py-2 dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white'
+              name={content.name}
+              type={content.type}
+              onChange={content.onChange}
+              value={content.value}
+              placeholder='JavaScript es...'
+              required
+            ></textarea>
+          </div>
           <span className='text-sm text-zinc-500 self-end'>
             Max. 480 caract.
           </span>
@@ -65,7 +77,7 @@ const FormArticle = () => {
         <ActionButton
           width='w-2/3'
           mdw='md:w-1/3'
-          text='Post ✉'
+          text='Postear ✉'
           position='self-center'
           disabled={disable}
         />

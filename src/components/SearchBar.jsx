@@ -49,7 +49,7 @@ const SearchBar = () => {
           placeholder='JavaScript, React.'
           required
         />
-        <ActionButton text={'Search'} />
+        <ActionButton text={'Buscar'} />
       </form>
     </div>
   );

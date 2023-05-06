@@ -37,46 +37,68 @@ export default function Signup() {
         <h1 className='text-2xl'>Sign up</h1>
         <form className='flex flex-col gap-5' onSubmit={handleSignup}>
           <div>
+            <label htmlFor='name' className='font-light text-gray-400 text-'>
+              Nombre
+            </label>
             <input
+              id='name'
               className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={name.name}
               type={name.type}
               onChange={name.onChange}
               value={name.value}
-              placeholder='Name'
+              placeholder='Joe'
               required
             ></input>
           </div>
           <div>
+            <label
+              htmlFor='nickname'
+              className='font-light text-gray-400 text-'
+            >
+              Nickname
+            </label>
             <input
+              id='nickname'
               className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={nickname.name}
               type={nickname.type}
               onChange={nickname.onChange}
               value={nickname.value}
-              placeholder='Nickname'
+              placeholder='Macbeth123'
               required
             ></input>
           </div>
           <div>
+            <label htmlFor='email' className='font-light text-gray-400 text-'>
+              E-mail
+            </label>
             <input
+              id='email'
               className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={email.name}
               type={email.type}
               onChange={email.onChange}
               value={email.value}
-              placeholder='Email'
+              placeholder='email@email.com'
               required
             ></input>
           </div>
           <div>
+            <label
+              htmlFor='password'
+              className='font-light text-gray-400 text-'
+            >
+              Contraseña
+            </label>
             <input
+              id='password'
               className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={password.name}
               type={password.type}
               onChange={password.onChange}
               value={password.value}
-              placeholder='Password'
+              placeholder='********'
               required
             ></input>
           </div>

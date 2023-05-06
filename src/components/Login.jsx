@@ -36,24 +36,35 @@ export default function Login() {
         <h1 className='text-2xl'>Log In</h1>
         <form className='flex  flex-col gap-5' onSubmit={handleLogin}>
           <div>
+            <label htmlFor='email' className='font-light text-gray-400 text-'>
+              E-mail
+            </label>
             <input
+              id='email'
               className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={email.name}
               type={email.type}
               onChange={email.onChange}
               value={email.value}
-              placeholder='Email'
-            ></input>
+              placeholder='email@email.com'
+            />
           </div>
           <div>
+            <label
+              htmlFor='password'
+              className='font-light text-gray-400 text-md'
+            >
+              Contraseña
+            </label>
             <input
+              id='password'
               className='rounded-md px-4 py-1 outline-none bg-slate-100 dark:text-white dark:bg-zinc-900 dark:focus:bg-zinc-700 dark:focus:text-white w-full'
               name={password.name}
               type={password.type}
               onChange={password.onChange}
               value={password.value}
-              placeholder='Password'
-            ></input>
+              placeholder='********'
+            />
           </div>
           <Error error={errMessage} />
           <ActionButton width='w-32' position='self-center' text='Log in' />
