@@ -67,7 +67,7 @@ export default function Login() {
             />
           </div>
           <Error error={errMessage} />
-          <ActionButton width='w-32' position='self-center' text='Log in' />
+          <ActionButton width='w-32' position='self-center' text='Ingresar' />
         </form>
         <p className='py-4'>
           ¿Aun no tienes una cuenta?{' '}

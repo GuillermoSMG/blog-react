@@ -10,12 +10,12 @@ export default function Logout() {
   };
 
   return (
-    <div className='md:mx-6 flex gap-3'>
+    <div className='md:mx-6 flex'>
       <button
-        className='font-medium hover:underline'
+        className='font-medium hover:underline max-w-fit'
         onClick={() => handleLogout()}
       >
-        Logout
+        Cerrar sesión
       </button>
     </div>
   );

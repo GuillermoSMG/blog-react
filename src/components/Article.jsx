@@ -1,11 +1,10 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { formatedDate } from '../utils/formatedDate';
-import { userContext } from './UserContext';
 import { deleteArticle } from '../services/articles';
-import DeleteButton from './DeleteButton';
 import { deleteToast } from '../utils/deleteToast';
-import EditButton from './EditButton';
+import { formatedDate } from '../utils/formatedDate';
+import DeleteButton from './DeleteButton';
+import { userContext } from './UserContext';
 
 const Article = ({ article }) => {
   const { user } = useContext(userContext);
@@ -38,7 +37,6 @@ const Article = ({ article }) => {
         {articleUser === userId && (
           <div className='absolute top-0 -right-2 md:right-0 md:top-0'>
             <DeleteButton handleDelete={handleDelete} />
-            <EditButton />
           </div>
         )}
       </div>

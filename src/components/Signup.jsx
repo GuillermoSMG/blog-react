@@ -103,7 +103,11 @@ export default function Signup() {
             ></input>
           </div>
           <Error error={errMessage} />
-          <ActionButton width='w-32' position='self-center' text='Sign up' />
+          <ActionButton
+            width='w-32'
+            position='self-center'
+            text='Registrarme'
+          />
         </form>
         <p className='py-4'>
           ¿Ya tienes una cuenta?{' '}
