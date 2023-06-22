@@ -11,10 +11,20 @@ export default function Signup() {
   const password = useField({ type: 'password', name: 'password' });
   const nickname = useField({ type: 'text', name: 'nickname' });
   const [errMessage, setErrMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSignup = async e => {
+    setLoading(false);
     try {
       e.preventDefault();
+      if (!password.value || !email.value || !name.value || !nickname.value) {
+        setErrMessage('Ambos campos son requeridos');
+        setTimeout(() => {
+          setErrMessage(null);
+        }, 4000);
+        return;
+      }
+      setLoading(true);
       await signup({
         name: name.value,
         email: email.value,
@@ -24,11 +34,13 @@ export default function Signup() {
       await login({ email: email.value, password: password.value });
       window.location.href = import.meta.env.VITE_BASE_URL;
     } catch (err) {
+      setLoading(false);
       setErrMessage(err.response.data.message);
       setTimeout(() => {
         setErrMessage(null);
       }, 4000);
     }
+    setLoading(false);
   };
 
   return (
@@ -82,6 +94,7 @@ export default function Signup() {
               value={email.value}
               placeholder='email@email.com'
               required
+              autoComplete='email'
             ></input>
           </div>
           <div>
@@ -98,8 +111,9 @@ export default function Signup() {
               type={password.type}
               onChange={password.onChange}
               value={password.value}
-              placeholder='********'
+              placeholder='Contraseña'
               required
+              autoComplete='current-password'
             ></input>
           </div>
           <Error error={errMessage} />
@@ -107,6 +121,7 @@ export default function Signup() {
             width='w-32'
             position='self-center'
             text='Registrarme'
+            disabled={loading}
           />
         </form>
         <p className='py-4'>

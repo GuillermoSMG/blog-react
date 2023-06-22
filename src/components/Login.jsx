@@ -8,13 +8,23 @@ import Error from './Error';
 export default function Login() {
   const [user, setUser] = useState(null);
   const [errMessage, setErrMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const email = useField({ type: 'email', name: 'email' });
   const password = useField({ type: 'password', name: 'password' });
 
   const handleLogin = async e => {
+    setLoading(false);
     try {
       e.preventDefault();
+      if (!password.value || !email.value) {
+        setErrMessage('Ambos campos son requeridos');
+        setTimeout(() => {
+          setErrMessage(null);
+        }, 4000);
+        return;
+      }
+      setLoading(true);
       const user = await login({
         email: email.value,
         password: password.value,
@@ -22,11 +32,13 @@ export default function Login() {
       setUser(user);
       window.location.href = import.meta.env.VITE_BASE_URL;
     } catch (err) {
+      setLoading(false);
       setErrMessage('Credenciales inválidas.');
       setTimeout(() => {
         setErrMessage(null);
       }, 4000);
     }
+    setLoading(false);
     return user;
   };
 
@@ -47,6 +59,8 @@ export default function Login() {
               onChange={email.onChange}
               value={email.value}
               placeholder='email@email.com'
+              autoComplete='email'
+              required
             />
           </div>
           <div>
@@ -63,11 +77,18 @@ export default function Login() {
               type={password.type}
               onChange={password.onChange}
               value={password.value}
-              placeholder='********'
+              placeholder='Contraseña'
+              autoComplete='current-password'
+              required
             />
           </div>
           <Error error={errMessage} />
-          <ActionButton width='w-32' position='self-center' text='Ingresar' />
+          <ActionButton
+            width='w-32'
+            position='self-center'
+            text='Ingresar'
+            disabled={loading}
+          />
         </form>
         <p className='py-4'>
           ¿Aun no tienes una cuenta?{' '}
